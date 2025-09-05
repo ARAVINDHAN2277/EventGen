@@ -4,6 +4,7 @@ import EventTypeSelector from './components/EventCreation/EventTypeSelector';
 import EventDetailsForm from './components/EventCreation/EventDetailsForm';
 import AIPreview from './components/EventCreation/AIPreview';
 import ThemeCustomizer from './components/EventCreation/ThemeCustomizer';
+import VisualDesigner from './components/EventCreation/VisualDesigner';
 import PublishStep from './components/EventCreation/PublishStep';
 import Dashboard from './components/Dashboard';
 import EventPage from './components/EventPage';
@@ -47,8 +48,10 @@ const AppContent: React.FC = () => {
       case 3:
         return <AIPreview onNext={handleNextStep} onBack={handlePrevStep} />;
       case 4:
-        return <ThemeCustomizer onNext={handleNextStep} onBack={handlePrevStep} />;
+        return <VisualDesigner onNext={handleNextStep} onBack={handlePrevStep} />;
       case 5:
+        return <ThemeCustomizer onNext={handleNextStep} onBack={handlePrevStep} />;
+      case 6:
         return <PublishStep onComplete={handlePublishComplete} onBack={handlePrevStep} />;
       default:
         return <EventTypeSelector onNext={handleNextStep} />;
@@ -56,7 +59,7 @@ const AppContent: React.FC = () => {
   };
 
   const renderProgressBar = () => {
-    const steps = ['Type', 'Details', 'Preview', 'Theme', 'Publish'];
+    const steps = ['Type', 'Details', 'Preview', 'Design', 'Theme', 'Publish'];
     const progressPercentage = (currentStep / steps.length) * 100;
 
     return (

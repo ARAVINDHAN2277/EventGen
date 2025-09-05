@@ -31,6 +31,8 @@ export interface Theme {
   secondaryColor: string;
   backgroundImage?: string;
   fontFamily: string;
+  customBackground?: string;
+  generatedBackground?: string;
 }
 
 export interface RSVPResponse {
@@ -52,4 +54,28 @@ export interface EventFormData {
   venue: string;
   type: string;
   description?: string;
+}
+
+export interface CanvasElement {
+  id: string;
+  type: 'text' | 'image' | 'shape';
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  rotation?: number;
+  content?: string;
+  fontSize?: number;
+  fontFamily?: string;
+  fill?: string;
+  src?: string;
+  zIndex: number;
+}
+
+export interface CanvasDesign {
+  id: string;
+  width: number;
+  height: number;
+  background: string;
+  elements: CanvasElement[];
 }
